@@ -94,21 +94,7 @@ url_to_head(
                                 ? 'authorizations'
                                 : 'captures';
                         //Custom Successful Message
-                        alerts.innerHTML =
-                            // `<div class=\'ms-alert ms-action\'>Thank you ` +
-                            // order_details.payer.name.given_name +
-                            // ` ` +
-                            // order_details.payer.name.surname +
-                            // ` for your payment of ` +
-                            // order_details.purchase_units[0].payments[
-                            //     intent_object
-                            // ][0].amount.value +
-                            // ` ` +
-                            // order_details.purchase_units[0].payments[
-                            //     intent_object
-                            // ][0].amount.currency_code +
-                            // `!</div>`;
-                            `<div class=\'ms-alert ms-action\'>Thank you for your payment!</div>`;
+                        alerts.innerHTML = `<div class=\'ms-alert ms-action\'>Thank you for your payment!</div>`;
 
                         //Close out the PayPal buttons that were rendered
                         paypal_buttons.close();

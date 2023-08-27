@@ -31,27 +31,6 @@ const endpoint_url =
  */
 app.post('/create_order', async (req, res) => {
     try {
-        // const access_token = await get_access_token();
-        // let order_data_json = {
-        //     intent: req.body.intent.toUpperCase(),
-        //     purchase_units: [
-        //         {
-        //             amount: {
-        //                 currency_code: 'USD',
-        //                 value: '100.00',
-        //             },
-        //         },
-        //     ],
-        // };
-        // const url = `${endpoint_url}/v2/checkout/orders`;
-        // const { data } = await axios.post(url, order_data_json, {
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         Authorization: `Bearer ${access_token}`,
-        //     },
-        // });
-        // console.log(data);
-
         const url = 'http://127.0.0.1:3001/api/checkout/OD00001';
         const requestBody = { paymentId: 'PY01' };
         const access_token =
@@ -61,6 +40,7 @@ app.post('/create_order', async (req, res) => {
                 Authorization: `Bearer ${access_token}`,
             },
         });
+        console.log(data);
         res.send({
             id: data.paymentOrderId,
         });
@@ -85,16 +65,6 @@ app.post('/create_order', async (req, res) => {
  */
 app.post('/complete_order', async (req, res) => {
     try {
-        // const access_token = await get_access_token();
-        // const url = `${endpoint_url}/v2/checkout/orders/${req.body.order_id}/${req.body.intent}`;
-        // const { data } = await axios.post(url, null, {
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //         Authorization: `Bearer ${access_token}`,
-        //     },
-        // });
-        // res.send(data);
-
         const url = 'http://127.0.0.1:3001/api/checkout/notifyPaypal';
         const requestBody = {
             paymentOrderId: req.body.order_id,
